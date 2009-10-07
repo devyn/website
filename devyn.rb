@@ -3,6 +3,7 @@
 
 require 'rubygems'
 require 'sinatra'
+require 'haml'
 
 class DevynWeb < Sinatra::Application
   # configuration goes here...
