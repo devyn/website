@@ -3,6 +3,9 @@
 %html
   %head
     %title ~devyn
+    - if @style
+      - @style.each do |sty|
+        %link{:rel => "stylesheet", :href => sty, :type => "text/css"}
   %body
     / content {
     = yield
