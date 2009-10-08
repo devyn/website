@@ -31,4 +31,27 @@
 
     As you hopefully can see, we create the resource "Post" with two properties: name (a short string), and body (a large amount of text). Then, we run @db:migrate@ which puts are tables into the database. Rails' default is SQLite3 (can be changed in @config/database.yml@, more on that later).
 
+    Now, let us modify a few files, so we can have "/posts/" hooked up to show all posts.
+
+    <pre><code>
+    # app/controllers/posts.rb
+    class PostsController &gt; ActionController::Base
+      def index
+        @posts = Post.all :order =&gt; "created_at DESC"
+      end
+    end
+
+    # app/views/posts/index.html.erb
+    &lt;% @posts.each do |post| %&gt;
+      &lt;div class="post"&gt;
+        &lt;h1 class="postName"&gt;&lt;%= h post.name %&gt;&lt;/h1&gt;
+        &lt;div class="postBody"&gt;
+          &lt;%= RedCloth.new(post.body).to_html %&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;% end %&gt;
+    </code></pre>
+
+    I would suggest you look at the @"ActiveRecord::Base":http://api.rubyonrails.org/classes/ActiveRecord/Base.html@ docs.
+
 #TBC
