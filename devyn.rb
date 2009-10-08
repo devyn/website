@@ -4,6 +4,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'redcloth'
 
 class DevynWeb < Sinatra::Application
   # configuration goes here...
