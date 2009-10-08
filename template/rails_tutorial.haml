@@ -1,0 +1,34 @@
+/ ~devyn's Rails Tutorial
+%h1.title an introduction to rails
+#guide
+  :redcloth
+    So, ya wanna learn Ruby on Rails, do ye? First off, grab the Rails gem:
+
+    <pre><code>
+    % [sudo] gem install rails
+    </code></pre>
+
+    Then, we create the app.
+
+    <pre><code>
+    % rails my-first-app
+    % cd my-first-app
+    </code></pre>
+
+    You'll get a whole spew of output, then we see that we get a few nice directories, the most important ones being
+
+    - @app@
+    - @config@
+    - @script@
+    - @public@
+
+    We'll be using mostly @app@ and @script@ at the moment. Anyway, let's start off making a simple blog. First, we must create the "post" resource. In Rails, a *resource* is a RESTful combination of a model and a controller. A *model* is an object-oriented form of data, and a *controller* contains a large amount of code logic for the views.
+
+    <pre><code>
+    % ./script/generate resource post name:string body:text
+    % rake db:migrate
+    </code></pre>
+
+    As you hopefully can see, we create the resource "Post" with two properties: name (a short string), and body (a large amount of text). Then, we run @db:migrate@ which puts are tables into the database. Rails' default is SQLite3 (can be changed in @config/database.yml@, more on that later).
+
+    .{ to be continued }.
