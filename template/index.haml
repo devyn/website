@@ -2,8 +2,36 @@
 #rightColumn.column
 .title ~devyn
 
+.warning
+  Note: This website is a work-in-progress. It is possibly ugly and likely glitchy. Certain elements may not be formatted.
+
 .message
-  Hello! This is the future home of ~devyn.... and has not been built yet. However, there are some pages on this site at the moment:
-  %ul
-    %li
-      %a{:href => "/tutorials/rails"} Rails tutorial
+  %p.lead
+    You have reached the domain of ~devyn. How can I help you?
+  :redcloth
+    Just kidding. You see, this is _my_ website. Not _yours_. At any rate, this is my home page. Because I can never stay put [except when I'm sitting at my desk, on the computer], I spread out all my stuff across the internets.
+
+    However, a major problem came out of that: there is no central location to look at all of my stuff! So, this page serves as a place where you can stare in amazement at the various works of ~devyn! So, without further ado, I give you.... my website!
+
+%table#layout
+  %tr#firstRow
+    %td#news
+      %a.sectionHead{:href => "http://devyn.tumblr.com/"} News
+      - @blog.items[0..4].each do |i|
+        .post
+          .pName= i.title
+          .body=  i.description
+    %td#profile
+      %a.sectionHead{:href => "http://devyn.heroku.com/"} Profile
+  %tr#secondRow
+    %td#projects
+      %a.sectionHead{:href => "http://github.com/devyn/"} Projects
+      - @git['repositories'].each do |repo|
+        .project
+          %a.name{:href => repo['url']}= h repo['name']
+    %td#social
+      %a.sectionHead{:href => "http://friendfeed.com/devyn/"} Social
+      - @ff['entries'].each do |e|
+        .event
+          .who   Devyn:
+          .body= e['body']
