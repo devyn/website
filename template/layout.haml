@@ -6,6 +6,7 @@
     - if @style
       - @style.each do |sty|
         %link{:rel => "stylesheet", :href => sty, :type => "text/css"}
+    %script{:src => "/jquery.js", :type => "text/javascript"}
   %body
     / content {
     = yield

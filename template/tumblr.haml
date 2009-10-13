@@ -1,0 +1,58 @@
+- @blog['posts'].each do |post|
+  .post
+    - case post['type']
+    - when 'regular'
+      .short= post['regular-title'] || post['regular-body'].split(" ")[0..9].join(" ")+"..."
+      .body=  post['regular-body']
+    - when 'photo'
+      .short
+        %img{:src => post['photo-url-250']}
+      .body
+        %img{:src => post['photo-url-500']}
+        .desc= post['photo-caption']
+    - when 'video'
+      .short
+        Video:
+        = h post['video-source']
+      .body
+        = post['video-player']
+        .caption= post['video-caption']
+    - when 'quote'
+      .short
+        Quote:
+        = post['quote-source']
+      .body
+        = post['quote-text']
+        %br/
+        \--
+        = post['quote-source']
+    - when 'link'
+      .short
+        %a{:href => post['link-url']}= post['link-name']
+      .body
+        %a{:href => post['link-url']}= post['link-name']
+        %br/
+        .caption= post['link-description']
+    - when 'conversation'
+      .short= post['conversation-title']
+      .body
+        .name= post['conversation-title']
+        = post['conversation-text']
+    - when 'audio'
+      .short= post['audio-player']
+      .body
+        = post['audio-player']
+        %br/
+        .desc= post['audio-caption']
+
+%script
+  :plain
+    $('.post .body').hide();
+    $('.post .short').click(function(){
+      $(this).parent().children('.body').slideDown('fast');
+      $(this).slideUp('fast');
+    });
+    $('.post .body').click(function(){
+      $(this).parent().children('.short').slideDown('fast');
+      $(this).slideUp('fast');
+    });

@@ -4,11 +4,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'sass'
 require 'redcloth'
 require 'json'
 require 'net/http'
-require 'rss/1.0'
-require 'rss/2.0'
 
 class DevynWeb < Sinatra::Application
   # configuration goes here...

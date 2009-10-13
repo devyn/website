@@ -1,0 +1,10 @@
+- @ff['entries'].each do |e|
+  .event
+    .who   Devyn:
+    .body= e['body']
+    .from
+      from
+      %a{:href => e['via']['url']}= e['via']['name']
+    .at
+      on
+      = Time.parse(e['date']).strftime("%b. %d, %Y - %H:%M")

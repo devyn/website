@@ -5,6 +5,7 @@ body
   font-family: sans-serif
   color: #162236
   font-size: 12px
+
 .title
   background-color: #2a3c54
   border: 5px solid #162236
@@ -16,12 +17,14 @@ body
   padding-left: 10px
   color: #7fb7ff
   font-size: 18px
+
 .column
   background-color: #162236
   position: fixed
   width: 10%
   height: 100%
   top: 0px
+
 #leftColumn
   left: 0px
 #rightColumn
@@ -46,12 +49,11 @@ table#layout
 
 #news
   .post
-    .pName
+    .short
       font-size: 12pt
       padding: 5px
     .body
       font-size: 10pt
-      display: none
 
 #projects
   .project
@@ -61,13 +63,29 @@ table#layout
 
 #social
   .event
-    .who
+    .who, .body, .from, .at
       display: inline
+    .who
       padding: 2px
       font-weight: bold
-    .body
-      display: inline
+    .from
+      color: #020
+    .at
+      color: #333
+
+#profile
+  font-size: 14px
+  .avatar
+    float: right
+    border: 3px solid black
+    margin: 5px
 
 .sectionHead, .sectionHead:visited
   font-size: 16pt
   color: white
+
+a, a:visited
+  text-decoration: none
+  color: #003
+a:hover
+  text-decoration: underline

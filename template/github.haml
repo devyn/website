@@ -1,0 +1,3 @@
+- @git['repositories'].each do |repo|
+  .project
+    %a.name{:href => repo['url']}= h repo['name']
