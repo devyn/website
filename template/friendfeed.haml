@@ -7,4 +7,4 @@
       %a{:href => e['via']['url']}= e['via']['name']
     .at
       on
-      = Time.parse(e['date']).strftime("%b. %d, %Y - %H:%M")
+      = Time.parse(e['date']).strftime("%b. %d, %Y - %H:%M (%Z)")
